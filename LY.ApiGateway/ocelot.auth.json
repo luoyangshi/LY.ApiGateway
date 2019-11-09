@@ -9,7 +9,7 @@
           "Port": 5001
         },
         {
-          "Host": "172.21.0.2",
+          "Host": "188.131.218.202",
           "Port": 5001
         }
       ],
@@ -28,7 +28,7 @@
           "Port": 5001
         },
         {
-          "Host": "172.21.0.2",
+          "Host": "188.131.218.202",
           "Port": 5001
         }
       ],
@@ -36,6 +36,18 @@
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 5,
+        "TimeoutValue": 5000
       }
     }
   ]
