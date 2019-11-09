@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LY.ApiGateway</name>
+    </assembly>
+    <members>
+        <member name="M:LY.ApiGateway.Controllers.HomeController.Index">
+            <summary>
+            Index
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

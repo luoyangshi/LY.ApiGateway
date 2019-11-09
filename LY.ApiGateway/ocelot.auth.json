@@ -1,0 +1,42 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/connect/token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.21.0.2",
+          "Port": 5001
+        },
+        {
+          "Host": "172.21.0.2",
+          "Port": 5011
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/token",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.21.0.2",
+          "Port": 5001
+        },
+        {
+          "Host": "172.21.0.2",
+          "Port": 5011
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    }
+  ]
+}
