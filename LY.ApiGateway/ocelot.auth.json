@@ -5,12 +5,12 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "172.21.0.2",
+          "Host": "188.131.218.202",
           "Port": 5001
         },
         {
           "Host": "172.21.0.2",
-          "Port": 5011
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/auth/token",
@@ -24,12 +24,12 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "172.21.0.2",
+          "Host": "188.131.218.202",
           "Port": 5001
         },
         {
           "Host": "172.21.0.2",
-          "Port": 5011
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/auth/{everything}",
