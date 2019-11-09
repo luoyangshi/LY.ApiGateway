@@ -3,16 +3,16 @@
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "188.131.218.202",
-          "Port": 5002
-        },
-        {
-          "Host": "188.131.218.202",
-          "Port": 5002
-        }
-      ],
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "188.131.218.202",
+      //    "Port": 5002
+      //  },
+      //  {
+      //    "Host": "188.131.218.202",
+      //    "Port": 5002
+      //  }
+      //],
       "UpstreamPathTemplate": "/order/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "LoadBalancerOptions": {
@@ -29,7 +29,9 @@
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 5,
         "TimeoutValue": 5000
-      }
+      },
+      "ServiceName": "AuthService",
+      "UseServiceDiscovery": true
     }
   ]
 }

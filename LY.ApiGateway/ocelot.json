@@ -1,27 +1,10 @@
 {
-  "ReRoutes": [
-    {
-      "DownstreamPathTemplate": "/api/values",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "188.131.218.202",
-          "Port": 5001
-        },
-        {
-          "Host": "172.21.0.2",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/auth/token",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      }
-    }
-  ],
   "GlobalConfiguration": {
     "BaseUrl": "http://188.131.218.202:5000",
+    "ServiceDiscoveryProvider": {
+      "Host": "188.131.218.202",
+      "Port": 8500 
+    },
     "RateLimitOptions": {
       "DisableRateLimitHeaders": false,
       "QuotaExceededMessage": "Customize Tips!",
