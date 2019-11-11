@@ -3,18 +3,19 @@
     {
       "DownstreamPathTemplate": "/connect/token",
       "DownstreamScheme": "http",
-      //"DownstreamHostAndPorts": [
-      //  {
-      //    "Host": "188.131.218.202",
-      //    "Port": 5001
-      //  },
-      //  {
-      //    "Host": "188.131.218.202",
-      //    "Port": 5001
-      //  }
-      //],
       "UpstreamPathTemplate": "/auth/token",
       "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "ServiceName": "AuthService",
+      "UseServiceDiscovery": true
+    },
+    {
+      "DownstreamPathTemplate": "/auth/swagger.json",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/auth/swagger",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       },

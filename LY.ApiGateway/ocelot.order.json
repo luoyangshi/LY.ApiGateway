@@ -1,6 +1,17 @@
 {
   "ReRoutes": [
     {
+      "DownstreamPathTemplate": "/swagger/order/swagger.json",
+      "DownstreamScheme": "http",
+      "ServiceName": "OrderService",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UseServiceDiscovery": true,
+      "UpstreamPathTemplate": "/order/swagger.json",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ]
+    },
+    {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       //"DownstreamHostAndPorts": [

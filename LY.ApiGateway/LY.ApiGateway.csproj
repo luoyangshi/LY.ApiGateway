@@ -34,6 +34,6 @@
     </None>
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties ocelot_1json__JsonSchema="http://json.schemastore.org/phraseapp" /></VisualStudio></ProjectExtensions>
 
 </Project>

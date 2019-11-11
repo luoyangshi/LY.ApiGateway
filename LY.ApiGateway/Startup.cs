@@ -37,7 +37,6 @@ namespace LY.ApiGateway
                 var basePath = AppContext.BaseDirectory;
                 var xmlPath = Path.Combine(basePath + "//xmls", "LY.ApiGateway.xml");
                 c.IncludeXmlComments(xmlPath);
-
                 c.OperationFilter<AddResponseHeadersFilter>();
                 c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
@@ -48,6 +47,8 @@ namespace LY.ApiGateway
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
                 });
+
+
             });
         }
 
@@ -59,11 +60,21 @@ namespace LY.ApiGateway
                 app.UseDeveloperExceptionPage();
             }
            
-            app.UseOcelot().Wait();
+           
             app.UseRouting();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/gateway/swagger.json", "gateway doc"); });
+            var apis=new List<string>(){"auth","order"};
+            app.UseSwagger(c => { c.RouteTemplate = "{documentName}/swagger.json"; });
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/gateway/swagger.json", "gateway doc"); 
+                apis.ForEach(m =>
+                {
+                    c.SwaggerEndpoint($"/{m}/swagger",$"{m} doc");
+                });
+            });
+            app.UseOcelot().Wait();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+          
         }
     }
 }
