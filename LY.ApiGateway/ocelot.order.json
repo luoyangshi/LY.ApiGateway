@@ -30,7 +30,7 @@
         "DurationOfBreak": 5,
         "TimeoutValue": 5000
       },
-      "ServiceName": "AuthService",
+      "ServiceName": "OrderService",
       "UseServiceDiscovery": true
     }
   ]

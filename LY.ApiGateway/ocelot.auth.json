@@ -3,35 +3,37 @@
     {
       "DownstreamPathTemplate": "/connect/token",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "188.131.218.202",
-          "Port": 5001
-        },
-        {
-          "Host": "188.131.218.202",
-          "Port": 5001
-        }
-      ],
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "188.131.218.202",
+      //    "Port": 5001
+      //  },
+      //  {
+      //    "Host": "188.131.218.202",
+      //    "Port": 5001
+      //  }
+      //],
       "UpstreamPathTemplate": "/auth/token",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
-      }
+      },
+      "ServiceName": "AuthService",
+      "UseServiceDiscovery": true
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "188.131.218.202",
-          "Port": 5001
-        },
-        {
-          "Host": "188.131.218.202",
-          "Port": 5001
-        }
-      ],
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "188.131.218.202",
+      //    "Port": 5001
+      //  },
+      //  {
+      //    "Host": "188.131.218.202",
+      //    "Port": 5001
+      //  }
+      //],
       "UpstreamPathTemplate": "/auth/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "LoadBalancerOptions": {
@@ -48,7 +50,9 @@
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 5,
         "TimeoutValue": 5000
-      }
+      },
+      "ServiceName": "AuthService",
+      "UseServiceDiscovery": true
     }
   ]
 }

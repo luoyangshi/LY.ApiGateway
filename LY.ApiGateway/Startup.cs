@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Consul;
+using Ocelot.Provider.Polly;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace LY.ApiGateway
@@ -23,7 +25,7 @@ namespace LY.ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddOcelot();
+            services.AddOcelot().AddConsul().AddPolly();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("gateway", new OpenApiInfo()
