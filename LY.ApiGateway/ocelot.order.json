@@ -8,22 +8,12 @@
         "Type": "RoundRobin"
       },
       "UseServiceDiscovery": true,
-      "UpstreamPathTemplate": "/order/swagger.json",
+      "UpstreamPathTemplate": "/order/swagger",
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ]
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
-      //"DownstreamHostAndPorts": [
-      //  {
-      //    "Host": "188.131.218.202",
-      //    "Port": 5002
-      //  },
-      //  {
-      //    "Host": "188.131.218.202",
-      //    "Port": 5002
-      //  }
-      //],
       "UpstreamPathTemplate": "/order/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "LoadBalancerOptions": {
