@@ -23,18 +23,30 @@
       "UseServiceDiscovery": true
     },
     {
+      "DownstreamPathTemplate": "/api/health",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/auth/health",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "ServiceName": "AuthService",
+      "UseServiceDiscovery": true
+    },
+    {
+      "DownstreamPathTemplate": "/api/home/{action}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/auth/home/{action}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "ServiceName": "AuthService",
+      "UseServiceDiscovery": true
+    },
+    {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
-      //"DownstreamHostAndPorts": [
-      //  {
-      //    "Host": "188.131.218.202",
-      //    "Port": 5001
-      //  },
-      //  {
-      //    "Host": "188.131.218.202",
-      //    "Port": 5001
-      //  }
-      //],
       "UpstreamPathTemplate": "/auth/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "LoadBalancerOptions": {
@@ -54,6 +66,10 @@
       },
       "ServiceName": "AuthService",
       "UseServiceDiscovery": true
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "AuthKey",
+      //  "AllowedScopes": []
+      //}
     }
   ]
 }

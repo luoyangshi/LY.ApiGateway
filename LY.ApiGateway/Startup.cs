@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,8 +21,12 @@ namespace LY.ApiGateway
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -47,9 +52,18 @@ namespace LY.ApiGateway
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
                 });
-
-
             });
+            var authenticationProviderKey = "AuthKey";
+            Action<IdentityServerAuthenticationOptions> options = o =>
+            {
+                o.ApiName = Configuration["IdentityServerOptions:ApiName"];
+                o.ApiSecret = Configuration["IdentityServerOptions:ApiSecret"];
+                o.Authority = Configuration["IdentityServerOptions:Authority"];
+                o.RequireHttpsMetadata = bool.Parse(Configuration["IdentityServerOptions:RequireHttpsMetadata"]);
+            };
+            services.AddAuthentication()
+                .AddIdentityServerAuthentication(authenticationProviderKey, options);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
