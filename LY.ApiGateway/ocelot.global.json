@@ -2,7 +2,7 @@
   "GlobalConfiguration": {
     "BaseUrl": "http://188.131.218.202:5000",
     "ServiceDiscoveryProvider": {
-      "Host": "188.131.218.202",
+      "Host": "consul1",
       "Port": 8500,
       "Type": "Consul"
     }

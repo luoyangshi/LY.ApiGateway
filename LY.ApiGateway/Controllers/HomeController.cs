@@ -20,7 +20,5 @@ namespace LY.ApiGateway.Controllers
         {
             return "Hello Ocelot";
         }
-
-
     }
 }
