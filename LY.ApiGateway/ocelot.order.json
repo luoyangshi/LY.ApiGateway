@@ -1,7 +1,7 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/swagger/order/swagger.json",
+      "DownstreamPathTemplate": "/order/swagger.json",
       "DownstreamScheme": "http",
       "ServiceName": "OrderService",
       "LoadBalancerOptions": {
@@ -12,7 +12,7 @@
       "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ]
     },
     {
-      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamPathTemplate": "/order/{everything}",
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/order/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
