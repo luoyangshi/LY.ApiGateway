@@ -1,9 +1,9 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "{url}",
+      "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "{url}",
+      "UpstreamPathTemplate": "/{url}",
       "UpstreamHttpMethod": [ "Get", "Post" ]
     }
   ],
