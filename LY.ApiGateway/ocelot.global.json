@@ -1,12 +1,4 @@
 {
-  "ReRoutes": [
-    {
-      "DownstreamPathTemplate": "/{url}",
-      "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
-    }
-  ],
   "GlobalConfiguration": {
     "BaseUrl": "http://188.131.218.202:5000",
     "ServiceDiscoveryProvider": {
